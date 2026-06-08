@@ -26,6 +26,10 @@ public class Session implements Serializable {
     @Column(nullable = false)
     private LocalDateTime endTime;
 
+    @ManyToOne
+    @JoinColumn(name = "event_id", nullable = false)
+    private Event event;
+
     public UUID getId() {
         return id;
     }
@@ -56,5 +60,13 @@ public class Session implements Serializable {
 
     public void setStartTime(LocalDateTime startTime) {
         this.startTime = startTime;
+    }
+
+    public Event getEvent() {
+        return event;
+    }
+
+    public void setEvent(Event event) {
+        this.event = event;
     }
 }
