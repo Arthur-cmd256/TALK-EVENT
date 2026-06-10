@@ -29,6 +29,10 @@ public class Attendee implements Serializable {
     @ManyToMany(mappedBy = "attendees", fetch = FetchType.LAZY)
     private Set<Event> events;
 
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @ManyToMany(mappedBy = "attendees", fetch = FetchType.LAZY)
+    private Set<Session> sessions;
+
     public UUID getId() {
         return id;
     }
