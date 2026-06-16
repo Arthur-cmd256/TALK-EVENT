@@ -37,7 +37,8 @@ public class Event implements Serializable {
     )
     private Set<Attendee> attendees = new HashSet<>();
 
-    @OneToOne(mappedBy = "event", cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "location_id")
     private Location location;
 
     public UUID getId() {
